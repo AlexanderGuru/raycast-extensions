@@ -10,7 +10,7 @@ export function normalizeNumber(value: string): string {
 
 /**
  * Clean up a phone label for display: raw AppleScript-style labels like
- * "_$!<Mobile>!$_" become "Mobile"; already-localized labels ("сотовый")
+ * "_$!<Mobile>!$_" become "Mobile"; already-localized labels ("móvil")
  * just get their first letter capitalized.
  */
 export function prettyLabel(raw: string): string {

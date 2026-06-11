@@ -23,12 +23,12 @@ describe("prettyLabel", () => {
   it("unwraps AppleScript-style labels", () => {
     expect(prettyLabel("_$!<Mobile>!$_")).toBe("Mobile");
   });
-  it("capitalizes localized labels", () => {
-    expect(prettyLabel("сотовый")).toBe("Сотовый");
+  it("capitalizes localized labels, including non-ASCII", () => {
     expect(prettyLabel("mobile")).toBe("Mobile");
+    expect(prettyLabel("büro")).toBe("Büro");
   });
   it("keeps custom labels", () => {
-    expect(prettyLabel("Дача")).toBe("Дача");
+    expect(prettyLabel("Work direct")).toBe("Work direct");
   });
   it("returns empty string for empty input", () => {
     expect(prettyLabel("")).toBe("");
@@ -36,20 +36,20 @@ describe("prettyLabel", () => {
 });
 
 describe("matchesQuery", () => {
-  const fields = { name: "Иван Петров", org: "Acme", label: "Сотовый", number: "+79161234567" };
+  const fields = { name: "Ivan Petrov", org: "Acme", label: "Mobile", number: "+79161234567" };
 
   it("matches a name substring (not only prefixes)", () => {
-    expect(matchesQuery(fields, "петро", "")).toBe(true);
+    expect(matchesQuery(fields, "van", "")).toBe(true);
   });
   it("matches the middle of a phone number", () => {
     expect(matchesQuery(fields, "123-45", "12345")).toBe(true);
   });
   it("matches organization and label", () => {
     expect(matchesQuery(fields, "acme", "")).toBe(true);
-    expect(matchesQuery(fields, "сотовый", "")).toBe(true);
+    expect(matchesQuery(fields, "mobile", "")).toBe(true);
   });
   it("rejects unrelated queries", () => {
-    expect(matchesQuery(fields, "сидоров", "")).toBe(false);
+    expect(matchesQuery(fields, "sidorov", "")).toBe(false);
     expect(matchesQuery(fields, "999", "999")).toBe(false);
   });
 });
@@ -65,7 +65,7 @@ describe("parseDialableNumber", () => {
     expect(parseDialableNumber("112")).toBe("112");
   });
   it("rejects text queries", () => {
-    expect(parseDialableNumber("Иван")).toBeNull();
+    expect(parseDialableNumber("Ivan")).toBeNull();
     expect(parseDialableNumber("iv 123")).toBeNull();
     expect(parseDialableNumber("")).toBeNull();
   });

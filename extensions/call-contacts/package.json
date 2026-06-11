@@ -23,15 +23,14 @@
   "license": "MIT",
   "commands": [
     {
-      "name": "search-contacts",
-      "title": "Search & Call Contact",
-      "subtitle": "Contacts",
+      "name": "call-contact",
+      "title": "Call Contact",
       "description": "Search your contacts by name or number and place a call.",
       "mode": "view"
     }
   ],
   "dependencies": {
-    "@raycast/api": "^1.99.0",
+    "@raycast/api": "^1.104.19",
     "@raycast/utils": "^1.19.1"
   },
   "devDependencies": {

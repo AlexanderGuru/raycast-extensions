@@ -36,7 +36,7 @@ export type ContactsResult = {
  * (Contacts), one process spawn, one source of contact ids.
  *
  * Phone labels come back already localized via CNLabeledValue
- * (e.g. "mobile" / "сотовый"); custom labels are returned as-is.
+ * (e.g. "mobile" / "móvil"); custom labels are returned as-is.
  */
 const CONTACTS_JXA = `
 ObjC.import("Contacts");
