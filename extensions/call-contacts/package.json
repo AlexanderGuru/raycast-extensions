@@ -1,0 +1,54 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "call-contacts",
+  "title": "Call Contacts",
+  "description": "Search your contacts and call them instantly via your iPhone or FaceTime.",
+  "icon": "extension-icon.png",
+  "author": "alex_guru",
+  "platforms": [
+    "macOS"
+  ],
+  "keywords": [
+    "contacts",
+    "call",
+    "phone",
+    "dial",
+    "facetime",
+    "sms"
+  ],
+  "categories": [
+    "Communication",
+    "Productivity"
+  ],
+  "license": "MIT",
+  "commands": [
+    {
+      "name": "search-contacts",
+      "title": "Search & Call Contact",
+      "subtitle": "Contacts",
+      "description": "Search your contacts by name or number and place a call.",
+      "mode": "view"
+    }
+  ],
+  "dependencies": {
+    "@raycast/api": "^1.99.0",
+    "@raycast/utils": "^1.19.1"
+  },
+  "devDependencies": {
+    "@raycast/eslint-config": "^1.0.11",
+    "@types/node": "22.19.17",
+    "@types/react": "19.0.10",
+    "eslint": "^8.57.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.4.5",
+    "vitest": "^4.1.8"
+  },
+  "scripts": {
+    "build": "ray build",
+    "dev": "ray develop",
+    "lint": "ray lint",
+    "fix-lint": "ray lint --fix",
+    "test": "vitest run",
+    "publish": "npx @raycast/api@latest publish"
+  }
+}
