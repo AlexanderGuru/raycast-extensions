@@ -1,6 +1,6 @@
 # Call Contacts Changelog
 
-## [Initial Version] - {PR_MERGE_DATE}
+## [Initial Release] - {PR_MERGE_DATE}
 
 - Search macOS contacts by name, organization, or any part of a phone number
 - Call with one keystroke via iPhone (Continuity `tel:` link)

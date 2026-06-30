@@ -131,14 +131,10 @@ export class ContactsAccessError extends Error {
 export async function fetchContacts(): Promise<ContactsResult> {
   let stdout: string;
   try {
-    ({ stdout } = await execFileAsync(
-      "osascript",
-      ["-l", "JavaScript", "-e", CONTACTS_JXA, PHOTO_DIR],
-      {
-        maxBuffer: 1024 * 1024 * 64,
-        timeout: SCRIPT_TIMEOUT_MS,
-      },
-    ));
+    ({ stdout } = await execFileAsync("osascript", ["-l", "JavaScript", "-e", CONTACTS_JXA, PHOTO_DIR], {
+      maxBuffer: 1024 * 1024 * 64,
+      timeout: SCRIPT_TIMEOUT_MS,
+    }));
   } catch (e) {
     if (e instanceof Error && "killed" in e && (e as { killed?: boolean }).killed) {
       throw new Error(

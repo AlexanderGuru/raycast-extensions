@@ -1,13 +1,4 @@
-import {
-  Action,
-  ActionPanel,
-  closeMainWindow,
-  Icon,
-  Image,
-  List,
-  open,
-  showHUD,
-} from "@raycast/api";
+import { Action, ActionPanel, closeMainWindow, Icon, Image, List, open, showHUD } from "@raycast/api";
 import { getAvatarIcon, useCachedPromise, useFrecencySorting } from "@raycast/utils";
 import { useMemo, useState } from "react";
 import { Contact, ContactsAccessError, fetchContacts, Phone } from "./contacts";
@@ -96,9 +87,7 @@ export default function Command() {
               <Action
                 title="Open Contacts Settings"
                 icon={Icon.Gear}
-                onAction={() =>
-                  open("x-apple.systempreferences:com.apple.preference.security?Privacy_Contacts")
-                }
+                onAction={() => open("x-apple.systempreferences:com.apple.preference.security?Privacy_Contacts")}
               />
             </ActionPanel>
           }
@@ -236,11 +225,7 @@ function ContactItem({
               shortcut={{ modifiers: ["cmd"], key: "r" }}
               onAction={onRefresh}
             />
-            <Action
-              title="Reset Ranking"
-              icon={Icon.ArrowCounterClockwise}
-              onAction={onResetRanking}
-            />
+            <Action title="Reset Ranking" icon={Icon.ArrowCounterClockwise} onAction={onResetRanking} />
           </ActionPanel.Section>
         </ActionPanel>
       }
@@ -259,11 +244,7 @@ function DialItem({ number }: { number: string }) {
         <ActionPanel>
           <CallActions number={number} displayName={number} />
           <ActionPanel.Section>
-            <Action.CopyToClipboard
-              title="Copy Number"
-              content={number}
-              shortcut={{ modifiers: ["cmd"], key: "c" }}
-            />
+            <Action.CopyToClipboard title="Copy Number" content={number} shortcut={{ modifiers: ["cmd"], key: "c" }} />
           </ActionPanel.Section>
         </ActionPanel>
       }
